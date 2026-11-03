@@ -1,10 +1,5 @@
 export const esPinValido = (pin) => {
-    // 1. Asegurar que estrictamente sea un string (bloquea arrays, números, booleanos, etc.)
-    if (typeof pin !== "string") {
-        return false;
-    }
-
-    if (pin === null || pin === undefined || pin === "") {
+    if (typeof pin !== "string" || pin === "") {
         return false;
     }
 
@@ -18,16 +13,8 @@ export const esPinValido = (pin) => {
         }
     }
 
-    let result = true;
-    for (let i = 1; i < pin.length; i++) {
-        if (pin[i] === pin[i - 1]) {
-            result = false;
-        } 
-        else {
-            result = true;
-        }
-    }
-    if (!result) {
+    let result = pin.split("").every(digito => digito === pin[0]);
+    if (result) {
         return false;
     }
 
