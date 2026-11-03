@@ -3,12 +3,9 @@ export const fibonacci = (n) => {
         throw new RangeError("solo números enteros entre 0 y 78");
     }
 
-    if (n === 0){
-        return 0;
-    }
-    if (n === 1){
-        return 1;
-    }
+    if (n === 0) return 0;
+    if (n === 1) return 1;
+    
 
     let a = 0;
     let b = 1;
